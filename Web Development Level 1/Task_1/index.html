@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+
+
+
+    <title>Hospital Management System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://t3.ftcdn.net/jpg/00/54/04/88/360_F_54048895_g0JI7ujj7Wkefvfu3VXntlHAMAQGmFlJ.jpg'); /* Replace with your hospital image URL */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .header {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            color:whitesmoke;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            background-color: yellow;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        .nav-tabs a {
+            margin: 5px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #007BFF;
+            background-color: #ffffff;
+            border: 1px solid #007BFF;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+
+        .nav-tabs a:hover,
+        .nav-tabs a.active {
+            background-color: #007BFF;
+            color: white;
+            transform: scale(1.1);
+        }
+
+
+        .header1 {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            color:whitesmoke;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+
+        .nav-tabs b {
+            margin: 5px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #007BFF;
+            background-color: white;
+            border: 1px solid #007BFF;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+
+        .nav-tabs b:hover,
+        .nav-tabs b.active {
+            background-color: #007BFF;
+            color:white;
+            transform: scale(1.1);
+        }
+
+
+
+
+
+        .container {
+            background-color: white;
+            padding: 100px;
+            border-radius: 85px;
+            box-shadow: 0 8px 16px rgba(6, 4, 3, 0.2);
+            max-width: 800px;
+            width: 100%;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            color: #007BFF;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .button {
+            background-color: #007BFF;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            background-color: #b3007a;
+            transform: scale(1.1);
+        }
+
+        .content-tab {
+            display: none;
+            margin-top: 20px;
+            color: #333;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .content-tab.active {
+            display: block;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery img {
+            width: 50%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+
+
+
+       
+        body {
+            font-family: Arial, sans-serif;
+            background-color: crimson;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            background-color: red;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #007BFF;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid purple;
+            font-size: 16px;
+        }
+
+        .form-group button {
+            background-color: #007BFF;
+            color: black;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+
+        .results {
+            margin-top: 20px;
+            display: none;
+            text-align: left;
+        }
+
+        .results h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .results p {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+
+
+
+
+
+        .blue-line {
+            background-color: whitesmoke;
+            color: black;
+            font-size: 36px;
+            text-align: center;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+
+
+    
+
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: black;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        select, input[type="number"], input[type="radio"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        input[type="radio"] {
+            width: auto;
+        }
+        .delivery-method label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        button {
+            background-color: #007bff;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+
+
+
+
+
+
+
+
+    </style>
+</head>
+
+<body>
+    
+<div class="header">
+    <h1>Hospital Management System</h1>
+    <h1><b>OUR SERVICES</b></h1>
+    <p>Our hospital management service optimizes healthcare operations by streamlining patient records, appointment scheduling, billing, and inventory management. It enhances efficiency, ensures regulatory compliance, improves patient care, and integrates communication among healthcare providers, staff, and patients.</p>
+    <div class="header">
+        </div>
+            <div class="nav-tabs">
+            <a href="#" class="tab-link active" data-tab="home">Home</a>
+            <a href="#" class="tab-link" data-tab="notices">Notices</a>
+            <a href="#" class="tab-link" data-tab="emergency">Emergency Numbers</a>
+            <a href="#" class="tab-link" data-tab="enquiry">Enquiry</a>
+            <a href="#" class="tab-link" data-tab="description">Description</a>
+            <a href="#" class="tab-link" data-tab="contact">Contact</a>
+            <a href="#" class="tab-link" data-tab="gallery">Gallery</a>
+        </div>
+    
+
+
+
+
+
+    <div class="container content-tab active" id="home">
+        <p><b>PUT YOUR SYMPTOMS TO FIND DEPARTMENT DOCTORS</b></p>
+        
+    
+
+
+
+        <div>
+            <input type="text" name="search" id="search" placeholder="Search your symptoms" style="padding: 10px; width: 80%; margin-bottom: 20px;">
+          
+            
+        
+          
+            <button class="button">Search</button>
+        </div>
+
+
+
+
+
+
+
+
+        <image src="https://i.pinimg.com/originals/8f/c3/7b/8fc37b74b608a622588fbaa361485f32.png" width=" "175" height="174"><h2>Email: contact@hospital.com</h2></image>
+        <div class="buttons">
+        
+           
+            
+
+
+
+
+        </div>
+        <div class="buttons">
+            <a href="#" class="button">Input Patient Details</a>
+            <a href="#" class="button">Department A - Bed Availability</a>
+            <a href="#" class="button">Department B - Bed Availability</a>
+            <a href="#" class="button">Choose Hospital</a>
+            <a href="#" class="button">Operations Performed</a>
+            <a href="#" class="button">Emergency Seats Availability</a>
+        </div>
+    </div>
+    <div class="container content-tab" id="CARDIOLOGY SERVICES">
+        <h2>Notices</h2>
+        <p>Important hospital announcements will be displayed here.</p>
+    </div>
+    <div class="container content-tab" id="notices">
+        <h2>Notices</h2>
+        <p>Important hospital announcements will be displayed here.</p>
+    </div>
+
+    <div class="container content-tab" id="emergency">
+        <h2>Emergency Numbers</h2>
+        <p>Emergency contact information for quick access.</p>
+    </div>
+
+  
+
+     
+    
+
+
+
+
+
+
+
+
+    <div class="container content-tab" id="enquiry">
+        <h2>Enquiry</h2>
+        <form>
+            <div>
+                <label for="enquiryName">Name:</label>
+                <input type="text" id="enquiryName" required style="padding: 10px; width: 100%; margin-bottom: 20px;">
+            </div>
+            <div>
+                <label for="enquiryMessage">Message:</label>
+                <textarea id="enquiryMessage" rows="3" required style="padding: 10px; width: 100%; margin-bottom: 20px;"></textarea>
+            </div>
+            <button type="submit" class="button">Submit</button>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="container content-tab" id="description">
+        <h2>Description</h2>
+        <p>This Hospital Management System is designed to efficiently manage the operations of a hospital, ensuring a seamless experience for both staff and patients.</p>
+    </div>
+
+    <div class="container content-tab" id="contact">
+        <h2>Contact</h2>
+       
+        <p>Email: cse2023004@rcciit.org.in</p>
+        <p>Phone: 9875478022</p>
+    </div>
+
+    <div class="container content-tab" id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <img src="https://static01.nyt.com/images/2023/11/13/multimedia/13daily-gaza-doctors-lqvm/13daily-gaza-doctors-lqvm-articleLarge.jpg?quality=75&auto=webp&disable=upscale" alt="Image 1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPYk_NsaHaaXjUpCxYC9F4P6o8V8SyIHaCXg&s" alt="Image 2">
+            <img src="https://etimg.etb2bimg.com/photo/112465921.cms" alt="Image 3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbNgoZwHRFaQxGm0y1eX3O5l2QC9dX5WMoOg&s" alt="Image 4">
+            <img src="https://assets.isu.pub/document-structure/221222113307-ae762ec1b4ba85b6ab72c2f6648021b2/v1/08ab8c314a887a1610cd89e8f7408dfb.jpeg" alt="Image 5">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2_AKYZ-88CU5Zzv3rwgk08hKZmEMO6YeWDHw8SU49e1JjxFQIiLF0G2msTpakFq1HRJ4&usqp=CAU" alt="Image 6">
+        </div>
+    </div>
+    
+
+
+
+    <div class="blue-line">YOUR HEALTH OUR RESPONSIBILITY</div>
+
+
+
+
+    <div class="container">
+        <h1>Find Hospital Services Near You</h1>
+
+        <div class="form-group">
+            <label for="location">Enter Your Location</label>
+            <input type="text" id="location" placeholder="Enter city or zip code">
+        </div>
+
+        <div class="form-group">
+            <label for="service">Select the Service You Need</label>
+            <select id="service">
+                <option value="ambulance">Ambulance Service</option>
+                <option value="bed">Book a Bed</option>
+                <option value="doctor">Doctor Service within 10 min</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button id="findServices">Find Services</button>
+        </div>
+
+        <div class="results" id="results">
+            <h2>Available Services</h2>
+            <p id="output"></p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="blue-line">We Serve For You</div>
+
+
+
+
+
+
+        <div class="header1"></div>
+        <ol type = "disc">
+            <h1>QUICK access</h1>
+            <li> About Us<p>A hospital may be a place of illness, but it’s also a place of healing, hope, and humanity</p></li>
+            <li><b>TEST WITH THEIR PRICES</b>
+                <table>
+                    <thead >
+                    <tr>
+                        <th>GASTROLOGY ||-</th>
+                        <th>DIABATES || -</th>
+                        <th>UROLOGY TEST ||- </th>
+                        <th>X=RAY ||-</th>
+                        <th>CT SCAN ||-</th>
+                        <th>MRI || -</th>
+                        <th>USG ||- </th>
+                        <th>URINE TEST ||-</th>
+                        <th>HEMOGLOBIN ||-</th>
+                        <th>THYROID TEST|| -</th>
+                        <th> ENDOSCOPY||- </th>
+                        <th>DIALYSIS||-</th>
+                        <th>THALASEMIA ||-</th>
+                        
+                     </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1500</td>
+                        <td>1000</td>
+                        <td>1500</td>
+                        <td>1000</td>
+                        <td>1500</td>
+                        <td>1000</td>
+                        <td>1500</td>
+                        <td>1000</td>
+                        <td>1000</td>
+                        <td>1500</td>
+                        <td>1000</td>
+                        <td>1500</td>
+                        <td>1000</td>
+                    </tr>
+                         
+                    </tbody>
+                </table>
+                 </div>
+            </li>
+
+        </ol>
+    </div>
+
+                
+                <div class="header1">
+                    </div>
+                        <div class="nav-tabs b">
+                        <a href="#" class="tab-link active" data-tab="OPD">OPD</a>
+                        <a href="#" class="tab-link active" data-tab="Ambulance Services">Ambulance Service</a>
+                        <a href="#" class="tab-link" data-tab="PathologyLabService">Pathology Lab Services</a>
+
+                        </div>
+
+            <div class="header1">
+                <h3>DEPARTMENTS</h3>
+                
+                <p>Our hospital management service optimizes healthcare operations by streamlining patient records, appointment scheduling, billing, and inventory management. It enhances efficiency, ensures regulatory compliance, improves patient care, and integrates communication among healthcare providers, staff, and patients.</p>
+                
+                
+
+
+
+<div class="container content-tab" id="OPD">
+
+    <h2>OPD Services</h2>
+    <img src="  https://www.shutterstock.com/image-photo/word-opd-outpatient-department-on-260nw-2353868295.jpg " alt="OPD Services" class="img-fluid mb-3">
+    <p>Our Outpatient Department (OPD) offers a range of services to ensure quality healthcare for our patients. We are dedicated to providing convenient access to medical professionals.</p>
+    
+ 
+
+    <h3 class="mt-4">OPD Hours</h3>
+  
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Department</th>
+                <th>Hours</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>General Medicine</td>
+                <td>9 AM - 5 PM</td>
+            </tr>
+            <tr>
+                <td>Pediatrics</td>
+                <td>10 AM - 4 PM</td>
+            </tr>
+            <tr>
+                <td>Orthopedics</td>
+                <td>11 AM - 3 PM</td>
+            </tr>
+            <tr>
+                <td>Cardiology</td>
+                <td>9 AM - 5 PM</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+    
+
+
+
+
+
+
+
+<div class="container content-tab" id="Ambulance Services">
+    
+    
+    <h1>Find Ambulance Service Near You</h1>
+
+    <div class="form-group">
+        <label for="location">Enter Your Location</label>
+        <input type="text" id="location" placeholder="Enter city or zip code">
+    </div>
+
+    <div class="form-group">
+        <label for="hospital">Pick Your Nearest Hospital</label>
+        <select id="hospital">
+            <option value="hospitalA">Hospital A</option>
+            <option value="hospitalB">Hospital B</option>
+            <option value="hospitalC">Hospital C</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="paymentOption">Select Payment Option</label>
+        <select id="paymentOption">
+            <option value="payLater">Pay Later</option>
+            <option value="prepaid">Prepaid</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <button id="findAmbulance">Find Ambulance</button>
+    </div>
+
+    <div class="results" id="results">
+        <h2>Available Ambulance Services</h2>
+        <p id="output"></p>
+    </div>
+</div>
+
+
+
+
+
+<!-- Pathology Lab Service -->
+<div class="container content-tab" id="PathologyLabService">
+    <h1>Book Your Pathology Lab Test</h1>
+
+    <div class="form-group">
+        <label for="testType">Select Test Type</label>
+        <select id="testType">
+            <option value="">-- Choose a Test --</option>
+            <option value="Blood Test">Blood Test</option>
+            <option value="Urine Test">Urine Test</option>
+            <option value="X-Ray">X-Ray</option>
+            <option value="MRI Scan">MRI Scan</option>
+            <option value="COVID-19 RT-PCR">COVID-19 RT-PCR</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="patientName">Patient Name</label>
+        <input type="text" id="patientName" placeholder="Enter full name">
+    </div>
+
+    <div class="form-group">
+        <label for="appointmentDate">Select Date</label>
+        <input type="date" id="appointmentDate">
+    </div>
+
+    <div class="form-group">
+        <label for="hospitalLab">Choose Lab Location</label>
+        <select id="hospitalLab">
+            <option value="">-- Select Lab --</option>
+            <option value="City Pathology Lab A">City Pathology Lab A</option>
+            <option value="City Pathology Lab B">City Pathology Lab B</option>
+            <option value="City Pathology Lab C">City Pathology Lab C</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="paymentMethod">Select Payment Method</label>
+        <select id="paymentMethod">
+            <option value="">-- Select Payment Option --</option>
+            <option value="Pay Later">Pay Later</option>
+            <option value="Prepaid">Prepaid</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <button id="bookTest">Book Test</button>
+    </div>
+
+    <div class="results" id="labResults" style="display:none;">
+        <h2>Booking Details</h2>
+        <p id="labOutput"></p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+    const tabs = document.querySelectorAll('.tab-link');
+    const tabContents = document.querySelectorAll('.content-tab');
+
+    // Handle tab switching
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            tabs.forEach(item => item.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            this.classList.add('active');
+            document.getElementById(this.dataset.tab).classList.add('active');
+        });
+    });
+
+    // OPD / General services search
+    document.getElementById('findServices').addEventListener('click', function () {
+        const locationInput = document.getElementById('location').value;
+        const selectedService = document.getElementById('service').value;
+        const output = document.getElementById('output');
+        const results = document.getElementById('results');
+
+        if (!locationInput) {
+            alert('Please enter your location.');
+            return;
+        }
+
+        let simulatedResponse = '';
+
+        if (selectedService === 'ambulance') {
+            simulatedResponse = `Ambulance services are available near ${locationInput}. Estimated arrival time: 10 minutes.`;
+        } else if (selectedService === 'bed') {
+            simulatedResponse = `Beds are available in hospitals near ${locationInput}. Check-in is open for immediate booking.`;
+        } else if (selectedService === 'doctor') {
+            simulatedResponse = `Doctors are available to visit your location in ${locationInput} within 10 minutes.`;
+        }
+
+        output.textContent = simulatedResponse;
+        results.style.display = 'block';
+    });
+
+    // Ambulance booking
+    document.getElementById('requestAmbulance').addEventListener('click', function () {
+        const selectedHospital = document.getElementById('hospital').value;
+        const selectedPayment = document.getElementById('payment').value;
+        const ambulanceOutput = document.getElementById('ambulanceOutput');
+        const ambulanceResults = document.getElementById('ambulanceResults');
+
+        if (!selectedHospital || !selectedPayment) {
+            alert('Please select both a hospital and a payment option.');
+            return;
+        }
+
+        ambulanceOutput.innerHTML = `You have requested an ambulance to <b>${selectedHospital}</b> with a <b>${selectedPayment}</b> payment option.`;
+        ambulanceResults.style.display = 'block';
+    });
+
+
+    // Pathology Lab Booking
+    document.getElementById('bookTest').addEventListener('click', function () {
+        const patientName = document.getElementById('patientName').value;
+        const testType = document.getElementById('testType').value;
+        const appointmentDate = document.getElementById('appointmentDate').value;
+        const hospitalLab = document.getElementById('hospitalLab').value;
+        const paymentMethod = document.getElementById('paymentMethod').value;
+
+        if (!patientName || !testType || !appointmentDate || !hospitalLab || !paymentMethod) {
+            alert('Please fill out all fields to book the test.');
+            return;
+        }
+
+        document.getElementById('labOutput').innerHTML =
+            `Booking confirmed for <b>${patientName}</b> — <b>${testType}</b> on <b>${appointmentDate}</b> at <b>${hospitalLab}</b>. Payment Method: <b>${paymentMethod}</b>. Please arrive 15 minutes early.`;
+
+        document.getElementById('labResults').style.display = 'block';
+    });
+</script>         
+            </body>
+            <script src="index.js"></script>
+            </html>
+

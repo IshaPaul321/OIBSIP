@@ -1,0 +1,57 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f7fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.converter-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  width: 320px;
+  text-align: center;
+}
+
+.converter-card h2 {
+  margin-bottom: 20px;
+}
+
+.converter-card label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.converter-card input,
+.converter-card select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#result {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}

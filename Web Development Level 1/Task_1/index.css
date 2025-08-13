@@ -1,0 +1,154 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('https://t3.ftcdn.net/jpg/00/54/04/88/360_F_54048895_g0JI7ujj7Wkefvfu3VXntlHAMAQGmFlJ.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: rgb(207, 207, 137);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.header, .header1 {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    color: rgb(227, 210, 157);
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    animation: fadeInDown 1s ease-in-out;
+}
+
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    background-color: lemonchiffon;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideInUp 1s ease-in-out;
+}
+
+.nav-tabs a, .nav-tabs b {
+    margin: 5px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #007BFF;
+    background-color: peachpuff;
+    border: 1px solid #007BFF;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-tabs b:hover, .nav-tabs a.active {
+    background-color: #007BFF;
+    color: palevioletred;
+    transform: scale(1.1);
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+    margin-top: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInDown 1s ease-in-out;
+}
+
+h2 {
+    color: #007BFF;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    animation: fadeInDown 1s ease-in-out;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.button {
+    background-color: #007BFF;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.button:hover {
+    background-color: #b3007a;
+    transform: scale(1.1);
+}
+
+.content-tab {
+    display: none;
+    margin-top: 20px;
+    color: #333;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.content-tab.active {
+    display: block;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
